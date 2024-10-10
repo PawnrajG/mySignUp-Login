@@ -2,28 +2,33 @@
 
 To learn or getting to know about how the websites work in login or signup functions
 
-# client directory
+# Client directory
 
 ## Create a vite-project using
 
 `npm create vite@latest`
+
 `cd client`
+
 `npm install`
+
 `npm run dev`
 
 ## Install tailwindcss and configure
 
-> npm install -D tailwindcss postcss autoprefixer
-> npx tailwindcss init -p
+`npm install -D tailwindcss postcss autoprefixer`
 
-1. Add this to index.css
-   @tailwind base;
-   @tailwind components;
-   @tailwind utilities;
+`npx tailwindcss init -p`
 
-# server directory
+Add this to index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-## initialize npm and install dependencies
+# Server directory
 
-> npm init -y
-> npm install express mongoose cors bcrypt dotenv
+## Initialize npm and install dependencies
+
+`npm init -y`
+
+`npm install express mongoose cors bcrypt dotenv`
