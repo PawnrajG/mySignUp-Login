@@ -6,10 +6,10 @@ To learn or getting to know about how the websites work in login or signup funct
 
 ## Create a vite-project using
 
-> npm create vite@latest
-> cd client
-> npm install
-> npm run dev - "to execute html page"
+`npm create vite@latest`
+`cd client`
+`npm install`
+`npm run dev`
 
 ## Install tailwindcss and configure
 
