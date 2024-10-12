@@ -6,6 +6,7 @@ const SignUp = ()=>{
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+
     
     const handleSignup = async(e) =>{
         e.preventDefault();
@@ -15,11 +16,13 @@ const SignUp = ()=>{
                 window.alert(`Account created for you ${name}!`);
             }
         }).catch((err)=>{
-            if(err.res && err.res.status === 409){
-                window.alert(`${email} already exists. Please use different email`);
-            }else{
+         
+            if (err.response && err.response.status === 409) {
+                window.alert(`${email} already exists. Please use a different email.`);
+            } else {
                 console.log(err);
             }
+            
         });
     }
     return (
