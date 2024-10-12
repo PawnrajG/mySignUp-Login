@@ -1,15 +1,11 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import User from '../model/user.js';
-import generateToken from '../utils/generateToken.js';
+//import generateToken from '../utils/generateToken.js';
 import resetToken from '../utils/resetToken.js';
 import nodemailer from 'nodemailer';
 
 const router = express.Router();
-
-// router.get("/test",(req,res)=>{
-//     res.json({message:"Testing router is successful"});
-// });
 
 router.post("/signup",async(req,res)=>{
     try{
@@ -38,8 +34,8 @@ router.post("/signin",async(req,res)=>{
         if(!isMatch){
             return res.status(401).json({message:"Invalid password"});
         }
-        const token = generateToken(userExists);
-        res.status(200).json({token});
+        //const token = generateToken(userExists);
+        res.status(200).json({message:"Sign in successfully"});
     }catch(error){
         res.status(500).json({message: error.message});
     }
