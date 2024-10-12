@@ -12,7 +12,7 @@ const SignUp = ()=>{
         const data = {name,email,password};
         await axios.post('http://localhost:3000/api/signup',data).then((res)=>{
             if(res.status === 201){
-                console.log("User account created!");
+                window.alert(`Account created for you ${name}!`);
             }
         }).catch((err)=>{
             if(err.res && err.res.status === 409){
