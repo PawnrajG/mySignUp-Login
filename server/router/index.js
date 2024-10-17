@@ -41,7 +41,7 @@ router.post("/signin",async(req,res)=>{
     }
 });
 
-router.post("/reset-token",async(req,res)=>{
+router.post("/reset-password",async(req,res)=>{
     try{
         const {email} = req.body;
         const user = await User.findOne({email});
@@ -62,8 +62,8 @@ router.post("/reset-token",async(req,res)=>{
         const message = {
             from: "pawnmugi@gmail.com",
             to: user.email,
-            subject: "Password reset request code",
-            text: `You are receiving this email by your request to reset your account password.\n\n Please use the following token to reset your password :${token}\n\n If not please ignore this email, kindly!`,
+            subject: "Password reset code",
+            text: `You are receiving this email by your request to reset your account password.\n\n Please use the following code to reset your password :${token}\n\n If not please ignore this email, kindly!`,
         }
         transporter.sendMail(message,(error,info)=>{
             if(error){
@@ -82,10 +82,10 @@ router.post("/reset-password/:token",async(req,res)=>{
         const {password} = req.body;
         const user = await User.findOne({
             resetPasswordToken: token,
-            resetPasswordExpires: {$lt: Date.now()},
+            resetPasswordExpires: {$gt: Date.now()},
         });
         if(!user){
-            return res.status(404).json({message:"Invalid token"});
+            return res.status(404).json({message: "User not found!"});
         }
         const hashedPassword = await bcrypt.hash(password,10);
         user.password = hashedPassword;

@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import SignUp from "./SignUp"
 import SignIn from "./SignIn"
+
+
 const Home = () =>{
     const [signup, setSignup] = useState(false)
     const [signin, setSignin] = useState(false)
